@@ -22,8 +22,9 @@ body {
 
 #home {
   background-image: url("/background.png");
-  background-size: fill;
+  background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-color: firebrick;
 }
