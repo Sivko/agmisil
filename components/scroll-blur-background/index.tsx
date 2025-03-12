@@ -18,7 +18,7 @@ export default function ScrollBlurBackground() {
 
 
 
-  const blurAmount = Math.min(precentScroll / 100, 10); // Ограничиваем блюр до 10px
+  const blurAmount = Math.min(precentScroll / 10, 10); // Ограничиваем блюр до 10px
   const opacityAmount = Math.min(precentScroll / 100, 0.8); // Затемнение до 70%
 
   return (
