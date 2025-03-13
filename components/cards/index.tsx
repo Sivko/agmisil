@@ -18,13 +18,13 @@ export default function Cards(props: IBlock) {
   const { scrollYProgress } = useScroll({
     target: ref,
     // offset: ["start 450px", "start 0px"],
-    offset: ["start 120px", "start 0px"]
+    offset: ["start 180px", "start -200px"]
   });
 
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.8, 0.4]);
-  // const translateY = useTransform(scrollYProgress, [0, 0.5, 1], [-300, 1, 1]);
-  const translateY = useTransform(scrollYProgress, [0, 0.8, 1], [1, 1, -1300]);
+  const scale = useTransform(scrollYProgress, [0, 0.3, 1], [1, 0.9, 0.4]);
+  // const translateY = useTransform(scrollYProgress, [0, 0.3, 1], [-300, 1, 1]);
+  const translateY = useTransform(scrollYProgress, [0, 0.3, 1], [1, 1, 300]);
 
   const SelectedBlock = (props: { blockName: string }) => {
     const Block = blocks[props?.blockName as keyof typeof blocks] ?? CardDefault;

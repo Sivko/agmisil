@@ -44,7 +44,7 @@ export default function AutoScroll() {
     });
 
     if (visibleSection && closestSection) {
-      closestSection.scrollIntoView({ behavior: "smooth", block: "center" });
+      // closestSection.scrollIntoView({ behavior: "smooth", block: "center" });
     }
   };
 
@@ -74,7 +74,7 @@ export function AutoScroll_() {
 
     const scrollToNearestSection = () => {
       const scrollPosition = window.scrollY;
-      let closestSection = sections[0];
+      // let closestSection = sections[0];
       let minDistance = Infinity;
 
       sections.forEach((element) => {
@@ -86,7 +86,7 @@ export function AutoScroll_() {
 
           if (distance < minDistance) {
             minDistance = distance;
-            closestSection = element;
+            // closestSection = element;
           }
         }
       });

@@ -1,4 +1,14 @@
 @font-face {
+	font-family: 'Audela-Trial';
+	src: url('audela-trial-regularitalic.eot'); /* IE 9 Compatibility Mode */
+	src: url('audela-trial-regularitalic.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
+		url('audela-trial-regularitalic.woff2') format('woff2'), /* Super Modern Browsers */
+		url('audela-trial-regularitalic.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
+		url('audela-trial-regularitalic.ttf') format('truetype'), /* Safari, Android, iOS */
+		url('audela-trial-regularitalic.svg#audela-trial-regularitalic') format('svg'); /* Chrome < 4, Legacy iOS */
+}
+
+@font-face {
     font-family: 'Helvetica Neue';
     src: url('HelveticaNeueBoldCondensed.eot');
     src: local('Helvetica Neue Condensed Bold'), local('HelveticaNeueBoldCondensed'),

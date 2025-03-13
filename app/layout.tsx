@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "@/fonts/font.css"
 import "./globals.css";
+import Modals from "@/components/modals";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,6 +17,7 @@ export default function RootLayout({
     <html lang="ru">
       <body>
         {children}
+        <Modals />
       </body>
     </html>
   );

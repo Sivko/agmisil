@@ -7,11 +7,14 @@ body {
   font-family: 'HelveticaNeueCyr', 'Arial', sans-serif;
 }
 
-#home {
-  background-image: url("/background.png");
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  /* background-color: firebrick; */
+h2 {
+  @apply text-[22px] leading-[24px] italic font-["Audela-Trial"];
+}
+
+p {
+  @apply mb-4
+}
+
+#contancts p {
+  @apply m-0
 }
