@@ -18,3 +18,15 @@ p {
 #contancts p {
   @apply m-0
 }
+
+
+
+html, body {
+  overflow: hidden;
+}
+#home {
+  @apply h-screen overflow-scroll snap-y snap-mandatory flex flex-col items-center gap-[20px]
+}
+/* #home {
+  @apply h-screen overflow-auto snap-y snap-mandatory flex flex-col items-center gap-[20px]
+} */
