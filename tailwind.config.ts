@@ -10,10 +10,8 @@ export default {
   theme: {
     extend: {
       fontSize: {
-        // DEFAULT: ['20px', '20px']
         DEFAULT: ['26px', '20px'],
         "base": ['26px', '20px'],
-        // '3xl': '2rem',
       },
       colors: {
         background: "var(--background)",

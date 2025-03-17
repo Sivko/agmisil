@@ -1,0 +1,16 @@
+{
+  "populate": {
+    "navbar": {
+      "populate": "*"
+    },
+    "logo": {
+      "populate": "*"
+    },
+    "favicon": {
+      "populate": "*"
+    },
+    "copyright": {
+      "populate": "*"
+    }
+  }
+}

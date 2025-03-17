@@ -5,26 +5,25 @@ import { useStore } from "@tanstack/react-store";
 import { useScroll, useTransform, motion, MotionValue } from "framer-motion";
 import React, { useEffect, useRef, useState, } from "react";
 
-interface VideoBackgroundProps {
-  videoSrc: string;
-  placeholderSrc: string;
-}
 
-const VideoBackground: React.FC<VideoBackgroundProps> = ({ videoSrc }) => {
+const VideoBackground: React.FC = () => {
+
+  const { global } = useStore(store, (state) => state);
+
   const videoRef = useRef<HTMLVideoElement>(null);
   const [, setIsVideoLoaded] = useState(false);
   const { isPlayVideo, containerRef } = useStore(store, (state) => state);
 
-  // const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     container: containerRef,
     offset: ["start start", "end start"],
   });
 
   const brightness = useTransform(scrollYProgress, [0, 1], [1, 0.1]);
-  const blur = useTransform(scrollYProgress, [0, 1], [0, 10]);
-  
-  const filter = useTransform([brightness, blur], ([b, bl]: MotionValue<number | string>[]) => `brightness(${b}) blur(${bl}px)`);
+  // Блюр дает большую просадку - пока без него
+  // const blur = useTransform(scrollYProgress, [0, 1], [0, 10]);
+  // const filter = useTransform([brightness, blur], ([b, bl]: MotionValue<number | string>[]) => `brightness(${b}) blur(${bl}px)`);
+  const filter = useTransform([brightness], ([b]: MotionValue<number | string>[]) => `brightness(${b})`);
 
 
   useEffect(() => {
@@ -42,16 +41,17 @@ const VideoBackground: React.FC<VideoBackgroundProps> = ({ videoSrc }) => {
       className="fixed inset-0 overflow-hidden z-[-1]"
       style={{ filter }}
     >
-      {/* {JSON.stringify(brightness)} */}
-      <video
+      {global?.data.videoBg && <video
         ref={videoRef}
         className={`w-full h-full object-cover ${true ? "block" : "hidden"}`}
-        src={videoSrc}
+        src={global.data.videoBg}
         loop
         muted
         playsInline
         onLoadedData={() => setIsVideoLoaded(true)}
       />
+      }
+      {/* Реализовать для мобильной версии, чтобы там была статичная картинка, и останавливать видео при сложных анимациях */}
       {/* {!isVideoLoaded && (
         <Image src={placeholderSrc} alt="Video Placeholder" className="w-full h-full object-cover" width={1200} height={1200} />
       )} */}

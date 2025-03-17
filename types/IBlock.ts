@@ -1,4 +1,5 @@
-export interface IBlock {
-  index?: number,
+import { Section } from "./IPage";
+
+export interface IBlock extends Section {
   blockName: string,
 }

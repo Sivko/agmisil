@@ -1,0 +1,30 @@
+{
+  "populate": {
+    "metaData": {
+      "populate": "*"
+    },
+    "sections": {
+      "on": {
+        "sections.basic": {
+          "populate": {
+            "media": {
+              "populate": "*"
+            },
+            "buttons": {
+              "populate": [
+                "icon"
+              ]
+            }
+          }
+        },
+        "sections.cards": {
+          "populate": {
+            "cards": {
+              "populate": "*"
+            }
+          }
+        }
+      }
+    }
+  }
+}

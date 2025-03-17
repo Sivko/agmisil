@@ -3,8 +3,9 @@ import { IBlock } from "@/types/IBlock";
 
 export default function CardDefault(props: IBlock) {
   return (
-    <CardWrapper {...props}>
+    <CardWrapper>
       {"Неизвестный блок"}
+      {JSON.stringify(props)}
     </CardWrapper>
   );
 }

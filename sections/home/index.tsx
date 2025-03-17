@@ -5,9 +5,13 @@ import { useEffect, useRef } from "react";
 import Cards from "@/components/cards";
 import MenuBottom from "@/components/menu-bottom";
 import VideoBackground from "@/components/video-background";
-import { setContainerRef } from "@/store";
+import { setContainerRef, setGlobal } from "@/store";
+import { IRootPage } from "@/types/IPage";
+import { IRootGlobal } from "@/types/IGlobal";
 
-export default function Home() {
+export default function Home({ page, global }: { page: IRootPage["data"][0], global: IRootGlobal }) {
+
+  setGlobal(global);
 
   const containerRef = useRef(null);
   const sectionRef = useRef(null);
@@ -26,9 +30,10 @@ export default function Home() {
     setContainerRef(containerRef);
   }, [])
 
+
   return (
     <div id="home" ref={containerRef}>
-      <VideoBackground videoSrc="https://cms.agmio.ru/uploads/agmio_bg_426f924234.webm" placeholderSrc="/background.png" />
+      <VideoBackground />
       <div ref={sectionRef} className="h-screen w-screen shrink-0 snap-normal snap-start" />
       <motion.img
         src="/logo.svg"
@@ -36,10 +41,8 @@ export default function Home() {
         alt=""
         style={{ scale, y, opacity }}
       />
-      {["card-view-video", "card-top-text", "card-top-text", "card-top-text", "card-contacts"].map((name, index) => (
-        <div className="snap-center" key={index} >
-          <Cards blockName={name} />
-        </div>
+      {page.sections.map((section, index) => (
+        <Cards blockName={section.__component} {...section} key={index} />
       ))}
       <MenuBottom />
     </div>

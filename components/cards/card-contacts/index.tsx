@@ -1,4 +1,5 @@
 import CardWrapper from "@/components/card-wrapper"
+import { getFirstMediaHelper } from "@/helpers/get-image-helper";
 import { IBlock } from "@/types/IBlock";
 import Image from "next/image";
 import Link from "next/link";
@@ -6,7 +7,7 @@ import Link from "next/link";
 export default function CardContacts(props: IBlock) {
 
   return (
-    <CardWrapper {...props}>
+    <CardWrapper media={getFirstMediaHelper(props?.media)}>
       <div id="contancts" className="flex flex-col items-center">
         <div className="mb-6">
           <h2>Контакты</h2>
